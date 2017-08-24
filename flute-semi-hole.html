@@ -1,0 +1,72 @@
+<link rel="import" href="/bower_components/polymer/polymer.html">
+<link rel="import" href="/bower_components/ac-view/ac-led-behavior.html">
+
+<dom-module id="flute-semi-hole">
+    <template>
+        <style>
+            [half-circle]{
+                height:10px;
+                width:20px;
+                border-radius: 90px 90px 0 0;
+                position: absolute;
+                background-color: var(--content-background,#fafafa);
+            }
+            [acLed]{
+                height:10px;
+                width:20px;
+                border-radius: 90px 90px 0 0;
+                position: absolute;
+            }
+            [wrapper]{
+                height:10px;
+                width:20px;
+                border-radius: 90px 90px 0 0;
+            }
+            .rotated {
+                transform: rotate(180deg) ; 
+            }
+            [note]{
+                display:none ;
+            }
+        </style>
+        <div wrapper class$='{{_computeRotation(rotated)}}'>
+            <div half-circle  >
+                <!-- <div noteNames style$='display:{{_computeDisplay(___acV_displayingNotes)}} ;'>
+                    [[note]]
+                </div> -->
+            </div>
+            <div acLed >
+                <!-- override default -->
+                <div note>
+                    F#
+                </div>
+            </div>
+        </div>
+    </template>
+    <script>
+        Polymer({
+            is: "flute-semi-hole",
+            observers: [],
+            behaviors: [acLedBehavior],
+            properties: {
+                isSmall:{
+                    type:Boolean,
+                    value:false
+                },
+                rotated:{
+                    type:Boolean,
+                    value:false
+                }
+            },
+            _computeRotation: function (rotated) {
+                if (rotated) {
+                    return 'rotated' ; 
+                }
+                return '' ; 
+            },
+            ready: function () {
+                this.___acV_isMonophonic = true ; 
+            }
+        });
+    </script>
+</dom-module>

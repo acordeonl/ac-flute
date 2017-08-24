@@ -1,0 +1,26 @@
+<link rel="import" href="/bower_components/polymer/polymer.html">
+<link rel="import" href="/bower_components/ac-view/ac-view-behavior.html">
+<link rel="import" href="./flute-holes.html">
+<dom-module id="ac-flute">
+    <template>
+        <style>
+        </style>
+        <flute-holes acLedGroup name='Flauta'>
+        </flute-holes>
+    </template>
+    <script>
+        Polymer({
+            is: "ac-flute",
+            observers: [],
+            behaviors: [ACViewBehavior],
+            properties: {
+            },
+            ___acV_handleMIDIEvent: function (e) {
+                this.$$('FLUTE-HOLES').___acV_onMIDIEvent(e);
+            },
+            ready: function () {
+                this.___acV_setDefaultReverb(30);
+            }
+        });
+    </script>
+</dom-module>

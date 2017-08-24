@@ -1,0 +1,75 @@
+<link rel="import" href="/bower_components/polymer/polymer.html">
+<link rel="import" href="/bower_components/ac-view/ac-led-behavior.html">
+
+<dom-module id="flute-hole">
+    <template>
+        <style>
+            [shadow]{
+                position: absolute;
+                margin-top: -3px;
+                border-radius: 100%;
+                background-color: var(--ac-led-shadow,gray);
+            }
+            [circle]{
+                position: absolute;
+                border-radius: 100%;
+                background-color: var(--content-background,#fafafa);
+            }
+            [acLed] {
+                position: absolute;
+                border-radius: 100%;
+                background-color:gray;
+            }
+        </style>
+        <div style$='width:[[holeWidth]]; height:[[holeHeight]];'>
+            <div shadow style$='width:[[holeWidth]]; height:[[holeHeight]];'></div>
+            <div circle style$='width:[[holeWidth]]; height:[[holeHeight]];'>
+                <!-- <div noteNames style$='display:{{_computeDisplay(___acV_displayingNotes)}} ;'>
+                    [[note]]
+                </div> -->
+            </div>
+            <div acLed style$='width:[[holeWidth]]; height:[[holeHeight]];'>
+                <!-- override default -->
+                <!-- <div note>
+                    F#
+                </div> -->
+            </div>
+        </div>
+    </template>
+    <script>
+        Polymer({
+            is: "flute-hole",
+            observers: [],
+            behaviors: [acLedBehavior],
+            properties: {
+                holeWidth:{
+                    type:String,
+                    value:'20px'
+                },
+                holeHeight:{
+                    type:String,
+                    value:'20px'
+                },
+                isSmall:{
+                    type:Boolean,
+                    value:false
+                },
+                isMedium:{
+                    type:Boolean,
+                    value:false
+                }
+            },
+            ready: function () {
+                this.___acV_isMonophonic = true ; 
+                if(this.isSmall){
+                    this.holeWidth = '7px';
+                    this.holeHeight = '7px';
+                }
+                if(this.isMedium){
+                    this.holeWidth = '14px';
+                    this.holeHeight = '14px';
+                }
+            }
+        });
+    </script>
+</dom-module>
