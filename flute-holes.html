@@ -1,155 +1,151 @@
-<link rel="import" href="/bower_components/polymer/polymer.html">
-<link rel="import" href="/bower_components/ac-view/ac-led-group-behavior.html">
-<link rel="import" href="/bower_components/ac-view/view-audio.html">
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../ac-view/ac-led-group-behavior.html">
+<link rel="import" href="../ac-view/view-audio.html">
 <link rel="import" href="./flute-hole.html">
 <link rel="import" href="./flute-semi-hole.html">
 
 
 <dom-module id="flute-holes">
     <template>
-        <styles>
-            <style holes>
-                flute-hole{
-                    margin:12px ;
-                }
-                flute-hole[is-small]{
-                    margin:2px; 
-                }
-                flute-hole[is-medium]{
-                    margin:2px; 
-                }
-                [back]{
-                    position: absolute ; 
-                    margin-left:-60px ; 
-                    margin-top:-97px ; 
-                }
-                [back-shadow] {
-                    position:absolute ; 
-                    height:20px;
-                    width:20px;
-                    margin-left:-60px ; 
-                    margin-top:-94px ; 
-                    background-color: var(--ac-led-shadow,gray);
-                    border-radius: 100% ; 
-                }
-                [flute-thumb-hole]{
-                    height:20px;
-                    width:20px;
-                }   
-                flute-semi-hole{
-                    margin:0px ; 
-                }
-                [double-hole]{
-                    margin: 12px ;
-                    @apply(--layout-horizontal);
-                    @apply(--layout-center);
-                }
-            </style>
-            <style sections>
-                [section]{
-                    @apply(--layout-center);
-                    @apply(--layout-around-justified);
-                    @apply(--layout-vertical);
-                    /* margin: 10px ; */
-                    /* border: 1px solid gray; */
-                    width:39px ; 
-                    border-radius:3px ; 
-                    background-color:var(--ac-led-shadow0,gray); ;
-                }
-                [section][lower]{
-                    width:50px ; 
-                    border-radius: 10px ; 
-                    height: 65px ; 
-                }
-                [top-mouthpiece]{
-                    @apply(--layout-center-justified);
-                    @apply(--layout-horizontal);
-                    height:7px;
-                    width:37px;
-                    background-color:var(--ac-led-shadow0,gray);
-                    border-top-right-radius: 7px ;
-                    border-top-left-radius: 7px ;
-                }
-                [mouthpiece] {
-                    border-bottom: 60px solid var(--ac-led-shadow0,gray);;
-                    border-left: 10px solid transparent;
-                    border-right: 10px solid transparent;
-                    height: 0;
-                    width: 37px;
-                    border-radius: 5px ;
-                }
-                [top]{
-                    @apply(--layout-center-justified);
-                    @apply(--layout-horizontal);
-                    border-radius: 4px ; 
-                    height:90px;
-                    width:47px;
-                    background-color:var(--ac-led-shadow0,gray); ;
-                }
-                [top-inner]{
-                    opacity: 0.5 ; 
-                    border-radius: 2px ; 
-                    height:15px;
-                    width:25px;
-                    margin-top:10px ; 
-                    background-color:gray ;
-                }
-                [top-inner2]{
-                    border-radius: 2px ; 
-                    height:30px;
-                    width:25px;
-                    margin-top:10px ; 
-                    background-color:var(--ac-led-shadow1,gray); ;
-                }
-                [bottom-before]{
-                    border-top-right-radius: 4px ; 
-                    border-top-left-radius: 4px ; 
-                    height:20px;
-                    width:40px;
-                    background-color:var(--ac-led-shadow0,gray);
-                }
-                [bottom] {
-                    border-bottom: 30px solid var(--ac-led-shadow0,gray);;
-                    border-left: 10px solid transparent;
-                    border-right: 10px solid transparent;
-                    width: 40px;
-                    /* border-radius: 10px ; */
-                }
-                [bottom-after]{
-                    height:20px;
-                    width:70px;
-                    background-color:var(--ac-led-shadow0,gray);
-                    border-radius: 10px ;
-                }
-            </style>
-            <style>
-                [playbackNote]{
-                    position: absolute ;
-                    margin-top:12px ; 
-                    font-size: 18px ;
-                    font-weight: 400 ; 
-                    color: var(--content-background,#fafafa);
-                }
-                [instrumentNote]{
-                    position: absolute ;
-                    margin-top:35px ; 
-                    font-size: 18px ;
-                    font-weight: 400 ; 
-                    color: var(--content-background,#fafafa);
-                }
-                [flute]{
-                    @apply(--layout-vertical);
-                    @apply(--layout-center);
-                }
-                [wrapper]{
-                    height: 100%;
-                    width: 100%;
-                    @apply(--layout-center);
-                    @apply(--layout-vertical);
-                    @apply(--layout-center-justified);
-                }
-            </style>
-        </styles>
+        <style holes>
+            flute-hole{
+                margin:12px ;
+            }
+            flute-hole[is-small]{
+                margin:2px; 
+            }
+            flute-hole[is-medium]{
+                margin:2px; 
+            }
+            [back]{
+                position: absolute ; 
+                margin-left:-60px ; 
+                margin-top:-97px ; 
+            }
+            [back-shadow] {
+                position:absolute ; 
+                height:20px;
+                width:20px;
+                margin-left:-60px ; 
+                margin-top:-94px ; 
+                background-color: var(--ac-led-shadow,gray);
+                border-radius: 100% ; 
+            }
+            [flute-thumb-hole]{
+                height:20px;
+                width:20px;
+            }   
+            flute-semi-hole{
+                margin:0px ; 
+            }
+            [double-hole]{
+                margin: 12px ;
+                @apply --layout-horizontal;
+                @apply --layout-center;
+            }
+        </style>
+        <style sections>
+            [section]{
+                @apply --layout-center;
+                @apply --layout-around-justified;
+                @apply --layout-vertical;
+                width:39px ; 
+                border-radius:3px ; 
+                background-color:var(--ac-led-shadow0,gray); ;
+            }
+            [section][lower]{
+                width:50px ; 
+                border-radius: 10px ; 
+                height: 65px ; 
+            }
+            [top-mouthpiece]{
+                @apply --layout-center-justified;
+                @apply --layout-horizontal;
+                height:7px;
+                width:37px;
+                background-color:var(--ac-led-shadow0,gray);
+                border-top-right-radius: 7px ;
+                border-top-left-radius: 7px ;
+            }
+            [mouthpiece] {
+                border-bottom: 60px solid var(--ac-led-shadow0,gray);;
+                border-left: 10px solid transparent;
+                border-right: 10px solid transparent;
+                height: 0;
+                width: 37px;
+                border-radius: 5px ;
+            }
+            [top]{
+                @apply --layout-center-justified;
+                @apply --layout-horizontal;
+                border-radius: 4px ; 
+                height:90px;
+                width:47px;
+                background-color:var(--ac-led-shadow0,gray); ;
+            }
+            [top-inner]{
+                opacity: 0.5 ; 
+                border-radius: 2px ; 
+                height:15px;
+                width:25px;
+                margin-top:10px ; 
+                background-color:gray ;
+            }
+            [top-inner2]{
+                border-radius: 2px ; 
+                height:30px;
+                width:25px;
+                margin-top:10px ; 
+                background-color:var(--ac-led-shadow1,gray); ;
+            }
+            [bottom-before]{
+                border-top-right-radius: 4px ; 
+                border-top-left-radius: 4px ; 
+                height:20px;
+                width:40px;
+                background-color:var(--ac-led-shadow0,gray);
+            }
+            [bottom] {
+                border-bottom: 30px solid var(--ac-led-shadow0,gray);;
+                border-left: 10px solid transparent;
+                border-right: 10px solid transparent;
+                width: 40px;
+                /* border-radius: 10px ; */
+            }
+            [bottom-after]{
+                height:20px;
+                width:70px;
+                background-color:var(--ac-led-shadow0,gray);
+                border-radius: 10px ;
+            }
+        </style>
+        <style>
+            [playbackNote]{
+                position: absolute ;
+                margin-top:12px ; 
+                font-size: 18px ;
+                font-weight: 400 ; 
+                color: var(--content-background,#fafafa);
+            }
+            [instrumentNote]{
+                position: absolute ;
+                margin-top:35px ; 
+                font-size: 18px ;
+                font-weight: 400 ; 
+                color: var(--content-background,#fafafa);
+            }
+            [flute]{
+                @apply --layout-vertical;
+                @apply --layout-center;
+            }
+            [wrapper]{
+                height: 100%;
+                width: 100%;
+                @apply --layout-center;
+                @apply --layout-vertical;
+                @apply --layout-center-justified;
+            }
+        </style>
         <view-audio id="fluteAudio" channel='0' default-audio-url='/data/accordion_synth/treble.mp3'></view-audio>
         <div wrapper>
             <div back-shadow>   
@@ -195,24 +191,20 @@
         </div>
     </template>
     <script>
-        Polymer({
-            is: "flute-holes",
-            observers: [],
-            listeners: {
-            },
-            behaviors: [acLedGroupBehavior],
-            properties: {
-                midiNoteToGUI:{
-                    type:Array,
-                    value:[]
-                }
-            },
-            ___acV_midiEventToAudioNote: function (channel, midiNote, origin) {
+        class FluteHoles extends Polymer.mixinBehaviors([acLedGroupBehavior], Polymer.Element) {
+            static get is() { return 'flute-holes'; }
+            static get properties() {return {
+                midiNoteToGUI:{type:Array,value:[]}
+            }}
+            constructor() {
+                super();
+            }
+            ___acV_midiEventToAudioNote (channel, midiNote, origin) {
                 if (origin.startsWith('___midi_instrument'))
                     return midiNote;
                 return this.___acV_midiEventToAudioNoteDefault(channel, midiNote, origin);
-            },
-            ___acV_mapMIDIEventToAcLedId: function (channel, midiNote, origin) {
+            }
+            ___acV_mapMIDIEventToAcLedId (channel, midiNote, origin) {
                 if (!origin.startsWith('___midi_instrument')) {
                     if (this.midiNoteToGUI[midiNote + this.___acV_referencePitch - this.___acV_pitch] === undefined) {
                         return [] ; 
@@ -223,8 +215,8 @@
                     return [] ; 
                 }
                 return this.midiNoteToGUI[midiNote];
-            },
-            ___acV_mapMIDIEventToAcLedState: function (channel,midiNote,origin) {
+            }
+            ___acV_mapMIDIEventToAcLedState (channel,midiNote,origin) {
                 var len ,res = []; 
                 if (!origin.startsWith('___midi_instrument')) {
                     if (this.midiNoteToGUI[midiNote + this.___acV_referencePitch - this.___acV_pitch] === undefined) {
@@ -244,8 +236,9 @@
                     res.push(1) ;
                 }
                 return res ;
-            },
-            ready: function () {
+            }
+            ready() {
+                super.ready() ;
                 this.midiNoteToGUI = [] ;
                 this.midiNoteToGUI[60] = [0,1,2,3,4,5,6,7,8,9,10];
                 this.midiNoteToGUI[61] = [0,1,2,3,4,5,6,7,8,9];
@@ -275,6 +268,7 @@
                 this.midiNoteToGUI[85] = [1,2,4,5,7,8,9,10]; 
                 this.midiNoteToGUI[86] = [1,2,4,5,7,8,9]; 
             }
-        });
+        }
+        customElements.define('flute-holes', FluteHoles);
     </script>
 </dom-module>

@@ -1,4 +1,4 @@
-<link rel="import" href="/bower_components/polymer/polymer.html">
+<link rel="import" href="/bower_components/polymer/polymer-element.html">
 <link rel="import" href="/bower_components/ac-view/ac-led-behavior.html">
 
 <dom-module id="flute-semi-hole">
@@ -44,29 +44,26 @@
         </div>
     </template>
     <script>
-        Polymer({
-            is: "flute-semi-hole",
-            observers: [],
-            behaviors: [acLedBehavior],
-            properties: {
-                isSmall:{
-                    type:Boolean,
-                    value:false
-                },
-                rotated:{
-                    type:Boolean,
-                    value:false
-                }
-            },
-            _computeRotation: function (rotated) {
+        class FluteSemiHole extends Polymer.mixinBehaviors([acLedBehavior], Polymer.Element) {
+            static get is() { return 'flute-semi-hole'; }
+            static get properties() {return {
+                isSmall:{type:Boolean,value:false},
+                rotated:{type:Boolean,value:false}
+            }}
+            constructor() {
+                super();
+            }
+            _computeRotation (rotated) {
                 if (rotated) {
                     return 'rotated' ; 
                 }
                 return '' ; 
-            },
-            ready: function () {
+            }
+            ready() {
+                super.ready() ;
                 this.___acV_isMonophonic = true ; 
             }
-        });
+        }
+        customElements.define('flute-semi-hole', FluteSemiHole);
     </script>
 </dom-module>

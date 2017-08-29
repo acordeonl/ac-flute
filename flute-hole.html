@@ -1,5 +1,5 @@
-<link rel="import" href="/bower_components/polymer/polymer.html">
-<link rel="import" href="/bower_components/ac-view/ac-led-behavior.html">
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../ac-view/ac-led-behavior.html">
 
 <dom-module id="flute-hole">
     <template>
@@ -37,29 +37,19 @@
         </div>
     </template>
     <script>
-        Polymer({
-            is: "flute-hole",
-            observers: [],
-            behaviors: [acLedBehavior],
-            properties: {
-                holeWidth:{
-                    type:String,
-                    value:'20px'
-                },
-                holeHeight:{
-                    type:String,
-                    value:'20px'
-                },
-                isSmall:{
-                    type:Boolean,
-                    value:false
-                },
-                isMedium:{
-                    type:Boolean,
-                    value:false
-                }
-            },
-            ready: function () {
+        class FluteHole extends Polymer.mixinBehaviors([acLedBehavior], Polymer.Element) {
+            static get is() { return 'flute-hole'; }
+            static get properties() {return {
+                holeWidth:{type:String,value:'20px'},
+                holeHeight:{type:String,value:'20px'},
+                isSmall:{type:Boolean,value:false},
+                isMedium:{type:Boolean,value:false}
+            }}
+            constructor() {
+                super();
+            }
+            ready() {
+                super.ready() ;
                 this.___acV_isMonophonic = true ; 
                 if(this.isSmall){
                     this.holeWidth = '7px';
@@ -70,6 +60,7 @@
                     this.holeHeight = '14px';
                 }
             }
-        });
+        }
+        customElements.define('flute-hole', FluteHole);
     </script>
 </dom-module>

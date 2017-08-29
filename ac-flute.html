@@ -1,5 +1,5 @@
-<link rel="import" href="/bower_components/polymer/polymer.html">
-<link rel="import" href="/bower_components/ac-view/ac-view-behavior.html">
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../ac-view/ac-view-behavior.html">
 <link rel="import" href="./flute-holes.html">
 <dom-module id="ac-flute">
     <template>
@@ -9,18 +9,20 @@
         </flute-holes>
     </template>
     <script>
-        Polymer({
-            is: "ac-flute",
-            observers: [],
-            behaviors: [ACViewBehavior],
-            properties: {
-            },
-            ___acV_handleMIDIEvent: function (e) {
+        class ACFlute extends Polymer.mixinBehaviors([ACViewBehavior], Polymer.Element) {
+            static get is() { return 'ac-flute'; }
+            static get properties() {return {}}
+            constructor() {
+                super();
+            }
+            ___acV_handleMIDIEvent (e) {
                 this.$$('FLUTE-HOLES').___acV_onMIDIEvent(e);
-            },
-            ready: function () {
+            }
+            ready() {
+                super.ready() ;
                 this.___acV_setDefaultReverb(30);
             }
-        });
+        }
+        customElements.define('ac-flute', ACFlute);
     </script>
 </dom-module>
