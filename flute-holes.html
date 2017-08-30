@@ -1,5 +1,5 @@
 <link rel="import" href="../polymer/polymer-element.html">
-<link rel="import" href="../ac-view/ac-led-group-behavior.html">
+<link rel="import" href="../ac-view/ac-led-group.html">
 <link rel="import" href="../ac-view/view-audio.html">
 <link rel="import" href="./flute-hole.html">
 <link rel="import" href="./flute-semi-hole.html">
@@ -191,7 +191,7 @@
         </div>
     </template>
     <script>
-        class FluteHoles extends Polymer.mixinBehaviors([acLedGroupBehavior], Polymer.Element) {
+        class FluteHoles extends ACLedGroup {
             static get is() { return 'flute-holes'; }
             static get properties() {return {
                 midiNoteToGUI:{type:Array,value:[]}

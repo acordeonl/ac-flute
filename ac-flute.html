@@ -1,5 +1,5 @@
 <link rel="import" href="../polymer/polymer-element.html">
-<link rel="import" href="../ac-view/ac-view-behavior.html">
+<link rel="import" href="../ac-view/ac-view.html">
 <link rel="import" href="./flute-holes.html">
 <dom-module id="ac-flute">
     <template>
@@ -9,14 +9,14 @@
         </flute-holes>
     </template>
     <script>
-        class ACFlute extends Polymer.mixinBehaviors([ACViewBehavior], Polymer.Element) {
+        class ACFlute extends ACView {
             static get is() { return 'ac-flute'; }
             static get properties() {return {}}
             constructor() {
                 super();
             }
             ___acV_handleMIDIEvent (e) {
-                this.$$('FLUTE-HOLES').___acV_onMIDIEvent(e);
+                this.shadowRoot.querySelector('FLUTE-HOLES').___acV_onMIDIEvent(e);
             }
             ready() {
                 super.ready() ;

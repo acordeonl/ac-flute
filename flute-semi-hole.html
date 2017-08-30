@@ -1,5 +1,5 @@
-<link rel="import" href="/bower_components/polymer/polymer-element.html">
-<link rel="import" href="/bower_components/ac-view/ac-led-behavior.html">
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../ac-view/ac-led.html">
 
 <dom-module id="flute-semi-hole">
     <template>
@@ -44,7 +44,7 @@
         </div>
     </template>
     <script>
-        class FluteSemiHole extends Polymer.mixinBehaviors([acLedBehavior], Polymer.Element) {
+        class FluteSemiHole extends ACLed {
             static get is() { return 'flute-semi-hole'; }
             static get properties() {return {
                 isSmall:{type:Boolean,value:false},
