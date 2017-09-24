@@ -199,14 +199,14 @@
             constructor() {
                 super();
             }
-            ___acV_midiEventToAudioNote (channel, midiNote, origin) {
-                if (origin.startsWith('___midi_instrument'))
+            ___acV_midiEventToAudioNote (channel, midiNote, origin,initiator) {
+                if (origin.startsWith('___midi_instrument')  || initiator ==='record')
                     return midiNote;
                 return this.___acV_midiEventToAudioNoteDefault(channel, midiNote, origin);
             }
-            ___acV_mapMIDIEventToAcLedId (channel, midiNote, origin) {
-                if (!origin.startsWith('___midi_instrument')) {
-                    if (this.midiNoteToGUI[midiNote - this.___acV_viewKey + this.___acV_pitch] === undefined) {
+            ___acV_mapMIDIEventToAcLedId (channel, midiNote, origin ,initiator) {
+                if (!origin.startsWith('___midi_instrument') && initiator === 'play') {
+                    if (this.midiNoteToGUI[midiNote] === undefined) {
                         return [] ; 
                     }
                     return this.midiNoteToGUI[midiNote - this.___acV_viewKey + this.___acV_pitch];
@@ -216,9 +216,9 @@
                 }
                 return this.midiNoteToGUI[midiNote];
             }
-            ___acV_mapMIDIEventToAcLedState (channel,midiNote,origin) {
+            ___acV_mapMIDIEventToAcLedState (channel,midiNote,origin,initiator) {
                 var len ,res = []; 
-                if (!origin.startsWith('___midi_instrument')) {
+                if (!origin.startsWith('___midi_instrument') && initiator === 'play') {
                     if (this.midiNoteToGUI[midiNote - this.___acV_viewKey + this.___acV_pitch] === undefined) {
                         return [] ; 
                     }
