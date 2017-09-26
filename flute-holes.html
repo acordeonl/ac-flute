@@ -209,35 +209,32 @@
                 //     if (this.midiNoteToGUI[midiNote] === undefined) {
                 //         return [] ; 
                 //     }
-                //     return this.midiNoteToGUI[midiNote + this.___acV_recordingPitch - this.___acV_viewPitch];
+                //     return this.midiNoteToGUI[midiNote  + this.___acV_recordingPitchDiff - this.___acV_viewPitchDiff];
                 // }
                 // if (this.midiNoteToGUI[midiNote] === undefined) {
                 //     return [] ; 
                 // 
-                console.log('pitch',this.___acV_recordingPitch);
-                console.log('viewPitch',this.___acV_viewPitch);
-                console.log('default_viewPitch',this.___acV_default_viewPitch);
-                if (this.midiNoteToGUI[midiNote + this.___acV_recordingPitch - this.___acV_viewPitch] === undefined) {
+                if (this.midiNoteToGUI[midiNote  + this.___acV_recordingPitchDiff - this.___acV_viewPitchDiff] === undefined) {
                     return [] ; 
                 }
-                return this.midiNoteToGUI[midiNote + this.___acV_recordingPitch - this.___acV_viewPitch];
+                return this.midiNoteToGUI[midiNote  + this.___acV_recordingPitchDiff - this.___acV_viewPitchDiff];
             }
             ___acV_mapMIDIEventToAcLedState (channel,midiNote,origin,initiator) {
                 var len ,res = []; 
                 // if (!origin.startsWith('___midi_instrument') && initiator === 'play') {
-                //     if (this.midiNoteToGUI[+ this.___acV_recordingPitch - this.___acV_viewPitch] === undefined) {
+                //     if (this.midiNoteToGUI[ + this.___acV_recordingPitchDiff] === undefined) {
                 //         return [] ; 
                 //     }
-                //     len = this.midiNoteToGUI[+ this.___acV_recordingPitch - this.___acV_viewPitch].length;
+                //     len = this.midiNoteToGUI[ + this.___acV_recordingPitchDiff].length;
                 //     for(let i = 0 ; i < len ; i ++ ){
                 //         res.push(1) ;
                 //     }
                 //     return res ;
                 // }
-                if (this.midiNoteToGUI[midiNote + this.___acV_recordingPitch - this.___acV_viewPitch] === undefined) {
+                if (this.midiNoteToGUI[midiNote  + this.___acV_recordingPitchDiff - this.___acV_viewPitchDiff] === undefined) {
                     return [] ; 
                 }
-                len = this.midiNoteToGUI[midiNote + this.___acV_recordingPitch - this.___acV_viewPitch ].length ; 
+                len = this.midiNoteToGUI[midiNote  + this.___acV_recordingPitchDiff - this.___acV_viewPitchDiff ].length ; 
                 for(let i = 0 ; i < len ; i ++ ){
                     res.push(1) ;
                 }
