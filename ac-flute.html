@@ -5,7 +5,7 @@
     <template>
         <style>
         </style>
-        <flute-holes acLedGroup name='Flauta'>
+        <flute-holes acLedGroup name='flauta'>
         </flute-holes>
     </template>
     <script>
@@ -20,6 +20,7 @@
             }
             ready() {
                 super.ready() ;
+                this.___acV_setName('flauta') ; 
                 this.___acV_setDefaultReverb(30);
                 this.___acV_setDefaultViewPitch(60) ; 
             }
