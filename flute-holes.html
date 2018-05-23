@@ -3,6 +3,7 @@
 <link rel="import" href="../ac-view/view-audio.html">
 <link rel="import" href="./flute-hole.html">
 <link rel="import" href="./flute-semi-hole.html">
+<link rel="import" href="./bottom-hole.html">
 
 
 <dom-module id="flute-holes">
@@ -186,7 +187,9 @@
                 </div>
                 <div bottom-before></div>
                 <div bottom></div>
-                <div bottom-after></div>
+                <div bottom-after>
+                    <bottom-hole acLed ac-id='11' channel='0'></bottom-hole>
+                </div>
             </div>
         </div>
     </template>
@@ -238,33 +241,41 @@
             ready() {
                 super.ready() ;
                 this.midiNoteToGUI = [] ;
-                this.midiNoteToGUI[72] = [0,1,2,3,4,5,6,7,8,9,10];
-                this.midiNoteToGUI[73] = [0,1,2,3,4,5,6,7,8,9];
-                this.midiNoteToGUI[74] = [0,1,2,3,4,5,6,7,8];
-                this.midiNoteToGUI[75] = [0,1,2,3,4,5,6,7];
-                this.midiNoteToGUI[76] = [0,1,2,3,4,5,6];
-                this.midiNoteToGUI[77] = [0,1,2,3,4,5,7,8,9,10];
-                this.midiNoteToGUI[78] = [0,1,2,3,4,6,7,8]; 
-                this.midiNoteToGUI[79] = [0,1,2,3,4]; 
-                this.midiNoteToGUI[80] = [0,1,2,3,5,6,7]; 
-                this.midiNoteToGUI[81] = [0,1,2,3]; 
-                this.midiNoteToGUI[82] = [0,1,2,4,5]; 
-                this.midiNoteToGUI[83] = [0,1,2]; 
-                this.midiNoteToGUI[84] = [0,1,3]; 
-                this.midiNoteToGUI[85] = [2,3]; 
-                this.midiNoteToGUI[86] = [3]; 
-                this.midiNoteToGUI[87] = [3,4,5,6,7,8]; 
-                this.midiNoteToGUI[88] = [1,2,3,4,5,6]; 
-                this.midiNoteToGUI[89] = [1,2,3,4,5,7,8]; 
-                this.midiNoteToGUI[90] = [1,2,3,4,6]; 
-                this.midiNoteToGUI[91] = [1,2,3,4]; 
-                this.midiNoteToGUI[92] = [1,2,3,5]; 
-                this.midiNoteToGUI[93] = [1,2,3]; 
-                this.midiNoteToGUI[94] = [1,2,3,6,7,8,9]; 
-                this.midiNoteToGUI[95] = [1,2,3,5,6]; 
-                this.midiNoteToGUI[96] = [1,2,5,6]; 
-                this.midiNoteToGUI[97] = [1,2,4,5,7,8,9,10]; 
-                this.midiNoteToGUI[98] = [1,2,4,5,7,8,9]; 
+                
+                this.midiNoteToGUI[72] = [0,1,2,3,4,5,6,7,8,9,10]; // C 
+                this.midiNoteToGUI[73] = [0,1,2,3,4,5,6,7,8,9]; // C#
+                this.midiNoteToGUI[74] = [0,1,2,3,4,5,6,7,8]; // D
+                this.midiNoteToGUI[75] = [0,1,2,3,4,5,6,7]; // Eb
+                this.midiNoteToGUI[76] = [0,1,2,3,4,5,6]; // E
+                this.midiNoteToGUI[77] = [0,1,2,3,4,5,7,8,9,10]; // F
+                this.midiNoteToGUI[78] = [0,1,2,3,4,6,7,8]; //  F#
+                this.midiNoteToGUI[79] = [0,1,2,3,4]; //  G
+                this.midiNoteToGUI[80] = [0,1,2,3,5,6,7]; //  Ab
+                this.midiNoteToGUI[81] = [0,1,2,3]; //  A
+                this.midiNoteToGUI[82] = [0,1,2,4,5]; //  Bb
+                this.midiNoteToGUI[83] = [0,1,2]; //  B
+
+                this.midiNoteToGUI[84] = [0,1,3]; // C 
+                this.midiNoteToGUI[85] = [2,3]; //  C#
+                this.midiNoteToGUI[86] = [3]; //  D
+                this.midiNoteToGUI[87] = [3,4,5,6,7,8]; //  Eb
+                this.midiNoteToGUI[88] = [1,2,3,4,5,6]; //  E
+                this.midiNoteToGUI[89] = [1,2,3,4,5,7,8]; //  F
+                this.midiNoteToGUI[90] = [1,2,3,4,6]; //  F#
+                this.midiNoteToGUI[91] = [1,2,3,4]; //  G
+                this.midiNoteToGUI[92] = [1,2,3,5]; //  Ab
+                this.midiNoteToGUI[93] = [1,2,3]; //  A
+                this.midiNoteToGUI[94] = [1,2,3,6,7,8,9]; //  Bb
+                this.midiNoteToGUI[95] = [1,2,3,5,6]; //  B
+
+                this.midiNoteToGUI[96] = [1,2,5,6]; //  C
+                this.midiNoteToGUI[97] = [1,2,4,5,7,8,9,11]; // C# 
+                this.midiNoteToGUI[98] = [1,2,4,5,7,8,9]; // D 
+                this.midiNoteToGUI[99] = [1,3,4,6,7,8,9]; // Eb
+                this.midiNoteToGUI[100] = [1,3,4,6,7,8,9,11]; // E
+                this.midiNoteToGUI[101] = [1,2,3,5,6,11]; // F
+                this.midiNoteToGUI[102] = [1,2,3,5,6]; // F #
+                this.midiNoteToGUI[103] = [1,2,5]; // G
             }
         }
         customElements.define('flute-holes', FluteHoles);
