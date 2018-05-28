@@ -204,15 +204,15 @@
             }
             ___acV_midiEventToAudioNote (channel, midiNote, origin,initiator) {
                 if (origin.startsWith('___midi_instrument')  || initiator ==='record')
-                    return midiNote + this.___acV_viewPitchDiff ;
+                    return midiNote ;
                 return this.___acV_midiEventToAudioNoteDefault(channel, midiNote, origin);
             }
             ___acV_mapMIDIEventToAcLedId (channel, midiNote, origin ,initiator) {
                 if (origin.startsWith('___midi_instrument') || initiator ==='record') {
-                    if(this.midiNoteToGUI[midiNote] === undefined ) 
+                    if(this.midiNoteToGUI[midiNote - this.___acV_viewPitchDiff] === undefined ) 
                         return [] ; 
 
-                    return this.midiNoteToGUI[midiNote];
+                    return this.midiNoteToGUI[midiNote - this.___acV_viewPitchDiff];
                 }
 
                 if (this.midiNoteToGUI[midiNote  + this.___acV_recordingPitchDiff - this.___acV_viewPitchDiff] === undefined) 
@@ -222,10 +222,10 @@
             ___acV_mapMIDIEventToAcLedState (channel,midiNote,origin,initiator) {
                 var len ,res = []; 
                 if (origin.startsWith('___midi_instrument') || initiator ==='record') {
-                    if(this.midiNoteToGUI[midiNote] === undefined ) 
+                    if(this.midiNoteToGUI[midiNote - this.___acV_viewPitchDiff] === undefined ) 
                         return [] ; 
 
-                    len = this.midiNoteToGUI[midiNote].length;
+                    len = this.midiNoteToGUI[midiNote - this.___acV_viewPitchDiff ].length;
                     for(let i = 0 ; i < len ; i ++ )
                         res.push(1) ;
                     return res ;
