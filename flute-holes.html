@@ -224,7 +224,6 @@
                 if (origin.startsWith('___midi_instrument') || initiator ==='record') {
                     if(this.midiNoteToGUI[midiNote - this.___acV_viewPitchDiff] === undefined ) 
                         return [] ; 
-
                     len = this.midiNoteToGUI[midiNote - this.___acV_viewPitchDiff ].length;
                     for(let i = 0 ; i < len ; i ++ )
                         res.push(1) ;
