@@ -121,19 +121,24 @@
             }
         </style>
         <style>
+            [notes]{
+                position: absolute;
+                margin-left:-100px ;
+                margin-top:-200px;
+            }
             [playbackNote]{
-                position: absolute ;
                 margin-top:12px ; 
                 font-size: 18px ;
                 font-weight: 400 ; 
-                color: var(--content-background,#fafafa);
+                font-size: 26px ;
+                color: var(--ac-led-shadow,gray);
             }
             [instrumentNote]{
-                position: absolute ;
-                margin-top:35px ; 
+                margin-top:10px ; 
                 font-size: 18px ;
                 font-weight: 400 ; 
-                color: var(--content-background,#fafafa);
+                font-size: 26px ;
+                color: var(--ac-led-shadow,gray);
             }
             [flute]{
                 @apply --layout-vertical;
@@ -149,6 +154,10 @@
         </style>
         <view-audio channel='0'></view-audio>
         <div wrapper>
+            <div notes>
+                <div playbackNote></div>
+                <div instrumentNote></div>
+            </div>
             <div back-shadow>   
             </div>
             <div back>
@@ -159,8 +168,6 @@
             </div>
             <div flute >
                 <div top-mouthpiece>
-                    <div playbackNote></div>
-                    <div instrumentNote></div>
                 </div>
                 <div mouthpiece></div>
                 <div top>
@@ -240,7 +247,8 @@
             ready() {
                 super.ready() ;
                 this.midiNoteToGUI = [] ;
-                
+
+                this.___acV_displayTransposition = true ;
                 this.midiNoteToGUI[72] = [0,1,2,3,4,5,6,7,8,9,10]; // C 
                 this.midiNoteToGUI[73] = [0,1,2,3,4,5,6,7,8,9]; // C#
                 this.midiNoteToGUI[74] = [0,1,2,3,4,5,6,7,8]; // D
